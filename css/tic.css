@@ -1,0 +1,54 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  font-family: "Arial";
+}
+
+.board {
+  display: flex;
+  width: 450px;
+  height: 450px;
+  outline: 2px solid #bbb;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  outline: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-0 {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 10px solid rgb(242, 61, 61);
+}
+
+.b-X {
+  color: #222;
+  font-size: 170px;
+  font-weight: bolder;
+  transform: rotate(45deg);
+}
+
+button {
+  margin-top: 20px;
+  background-color: rgb(242, 61, 61);
+  padding: 0.5em 1em;
+  font-size: 1.1rem;
+  border: 0;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+}/*# sourceMappingURL=tic.css.map */
