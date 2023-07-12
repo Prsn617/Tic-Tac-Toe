@@ -29,7 +29,6 @@ boxArray.map((boxx) => {
     for (let i = 0; i < 9; i++) {
       boxArray[i].innerHTML = board2[i];
     }
-
     setTimeout(displayResult, 200);
   });
 });
@@ -57,10 +56,12 @@ const displayResult = () => {
       if (board2[i] === "<span class='b-X'>+</span>") {
         if (!alert("X won")) {
           window.location.reload();
+          return;
         }
       } else if (board2[i] === "<span class='b-0'></span>") {
         if (!alert("0 won")) {
           window.location.reload();
+          return;
         }
       }
     }
