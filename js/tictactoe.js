@@ -54,18 +54,16 @@ boxArr.map((boxx) => {
           }
         }
       }
+      randomMove();
     }
-    console.log(board);
-    console.log(count);
+
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
         boxArray[i][j].innerHTML =
           board[i][j] === "X" ? ai : board[i][j] === "O" ? human : "";
       }
     }
-    displayResult();
-    randomMove();
-    displayResult();
+    setTimeout(displayResult, 200);
   });
 });
 
@@ -152,8 +150,11 @@ function randomMove() {
       }
     }
   }
-  board[move.i][move.j] = "X";
-  boxArray[move.i][move.j].innerHTML = ai;
+  if (board[move.i][move.j] === "") {
+    board[move.i][move.j] = "X";
+    boxArray[move.i][move.j].innerHTML = ai;
+  }
+  // displayResult();
 }
 
 function miniMax(board, depth, AI) {
@@ -197,14 +198,17 @@ function displayResult() {
     if (winner === "X") {
       if (!alert("X won")) {
         window.location.reload();
+        return;
       }
     } else if (winner === "O") {
       if (!alert("0 won")) {
         window.location.reload();
+        return;
       }
     } else if (winner === "Draw") {
       if (!alert("Draw")) {
         window.location.reload();
+        return;
       }
     }
   }

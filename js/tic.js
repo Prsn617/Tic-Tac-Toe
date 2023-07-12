@@ -25,50 +25,54 @@ boxArray.map((boxx) => {
         }
       }
     }
-    console.log(board2);
-    console.log(count);
+
     for (let i = 0; i < 9; i++) {
       boxArray[i].innerHTML = board2[i];
     }
 
-    for (let i = 0; i < 3; i++) {
-      if (
-        (board2[i] === board2[i + 3] &&
-          board2[i + 3] === board2[i + 6] &&
-          i === (i + 3) % 3 &&
-          (i + 3) % 3 === (i + 6) % 3) ||
-        (board2[i % 3] === board2[(i + 1) % 3] &&
-          board2[(i + 1) % 3] === board2[(i + 2) % 3]) ||
-        (board2[i] === board2[i + 4] &&
-          board2[i + 4] === board2[i + 8] &&
-          i === (i + 4) % 4 &&
-          (i + 4) % 4 === (i + 8) % 4) ||
-        (board2[i] === board2[i + 2] &&
-          board2[i + 2] === board2[i + 4] &&
-          i % 2 === (i + 2) % 2 &&
-          (i + 2) % 2 === (i + 4) % 2 &&
-          i !== 8 &&
-          i !== 0)
-      ) {
-        if (board2[i] === "<span class='b-X'>+</span>") {
-          if (!alert("X won")) {
-            window.location.reload();
-          }
-        } else if (board2[i] === "<span class='b-0'></span>") {
-          if (!alert("0 won")) {
-            window.location.reload();
-          }
-        }
-      }
-    }
-    if (count === 45) {
-      if (!alert("Draw")) {
-        window.location.reload();
-      }
-    }
+    setTimeout(displayResult, 200);
   });
 });
 
-for (let i = 0; i < 9; i++) {
-  boxArray[i].innerHTML = board2[i];
-}
+const displayResult = () => {
+  for (let i = 0; i < 3; i++) {
+    if (
+      (board2[i] === board2[i + 3] &&
+        board2[i + 3] === board2[i + 6] &&
+        i === (i + 3) % 3 &&
+        (i + 3) % 3 === (i + 6) % 3) ||
+      (board2[i % 3] === board2[(i + 1) % 3] &&
+        board2[(i + 1) % 3] === board2[(i + 2) % 3]) ||
+      (board2[i] === board2[i + 4] &&
+        board2[i + 4] === board2[i + 8] &&
+        i === (i + 4) % 4 &&
+        (i + 4) % 4 === (i + 8) % 4) ||
+      (board2[i] === board2[i + 2] &&
+        board2[i + 2] === board2[i + 4] &&
+        i % 2 === (i + 2) % 2 &&
+        (i + 2) % 2 === (i + 4) % 2 &&
+        i !== 8 &&
+        i !== 0)
+    ) {
+      if (board2[i] === "<span class='b-X'>+</span>") {
+        if (!alert("X won")) {
+          window.location.reload();
+        }
+      } else if (board2[i] === "<span class='b-0'></span>") {
+        if (!alert("0 won")) {
+          window.location.reload();
+        }
+      }
+    }
+  }
+
+  if (count === 45) {
+    if (!alert("Draw")) {
+      window.location.reload();
+    }
+  }
+};
+
+// for (let i = 0; i < 9; i++) {
+//   boxArray[i].innerHTML = board2[i];
+// }
